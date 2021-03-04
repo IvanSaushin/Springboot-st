@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+
+<div th:align="center">
+    <!--<br/>-->
+
+    <table>
+        <tr style="background-color: aliceblue">
+            <th>id</th><th>Firstname</th><th>Lastname</th> <th>Age</th> <th>Email</th><th>Roles</th>
+        </tr>
+        <tr>
+            <th th:text="${person.getId()}"></th>
+            <th th:text="${person.getFirstname()}"></th>
+            <th th:text="${person.getLastname()}"></th>
+            <th th:text="${person.getAge()}"></th>
+            <th th:text="${person.getEmail()}"></th>
+        </tr>
+        <tr> <td> </td> </tr>
+
+    </table>
+
+    <table>
+        <tr> <td> </td> </tr>
+        <tr>
+            <td><a th:href="@{/admin/users}">Back </a></td>
+            <td width="2"></td>
+            <td><a th:href="@{/admin/update/{id}(id=${person.getId()})}">Edit</a></td>
+            <td><form th:action="@{/admin/delete/{id}(id=${person.getId()})}">
+                <input type="submit" value=" Delete "/>
+            </form>
+            </td>
+            <td><form th:method="post" th:action="@{/logout}">
+                <input type="submit" value="Logout"/>
+            </form>
+            </td>
+        <tr>
+    </table>
+
+</div>
+
+
+</body>
+</html>
