@@ -3,7 +3,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Users</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>All user</title>
+
 </head>
 <body>
 
@@ -17,32 +22,22 @@
                 <th>Id</th>
                 <th>Firstname</th>
                 <th>Lastname</th>
-<!--                <th>Password</th>-->
+                <!--                <th>Password</th>-->
                 <th>Age</th>
                 <th>Email</th>
                 <th>Roles</th>
             </tr>
             </thead>
             <tbody>
-<!--            <tr th:each="user : ${users}">-->
-<!--                <td th:text="${user.id}"></td>-->
-<!--                <td th:text="${user.firstname}"></td>-->
-<!--                <td th:text="${user.lastname()}"></td>-->
-<!--                <td th:text="${user.password}"></td>-->
-<!--                <td th:text="${user.age}"></td>-->
-<!--                <td th:text="${user.email}"></td>-->
-<!--                <td><a th:href="@{update/{id}(id=${user.id})}">Edit</a></td>-->
-<!--                <td><a th:href="@{delete/{id}(id=${user.id})}">Delete</a></td>-->
-                <tr th:each="user : ${users}">
-                    <td th:text="${user.getId()}"></td>
-                    <td th:text="${user.getFirstname()}"></td>
-                    <td th:text="${user.getLastname()}"></td>
-<!--                    <td th:text="${user.getPassword()}"></td>-->
-                    <td th:text="${user.getAge()}"></td>
-                    <td th:text="${user.getEmail()}"></td>
-                    <td th:text="${user.getRoles()}"></td>
-                    <td><a th:href="@{update/{id}(id=${user.getId()})}">Edit</a></td>
-                    <td><a th:href="@{delete/{id}(id=${user.getId()})}">Delete</a></td>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.getId()}"></td>
+                <td th:text="${user.getFirstname()}"></td>
+                <td th:text="${user.getLastname()}"></td>
+                <td th:text="${user.getAge()}"></td>
+                <td th:text="${user.getEmail()}"></td>
+                <td th:text="${user.getRoles()}"></td>
+                <td><a th:href="@{update/{id}(id=${user.getId()})}">Edit</a></td>
+                <td><a th:href="@{delete/{id}(id=${user.getId()})}">Delete</a></td>
             </tr>
             </tbody>
         </table>

@@ -21,13 +21,13 @@ public class User implements UserDetails {
     private String lastname;
 
     @Column
-    private String password;
-
-    @Column
     private int age;
 
     @Column
     private String email;
+
+    @Column
+    private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles",
@@ -46,12 +46,12 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-    public User(String firstname, String lastname, String password, int age, String email) {
+    public User(String firstname, String lastname, int age, String email, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.password = password;
         this.age = age;
         this.email = email;
+        this.password = password;
     }
 
     public Long getId() {
@@ -84,12 +84,12 @@ public class User implements UserDetails {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     @Override
     public String getUsername() {
-        return email;
+        return this.email;
     }
 
     @Override
@@ -162,12 +162,13 @@ public class User implements UserDetails {
         User user = (User) obj;
         return (user.getId() == this.getId() && user.getFirstname()==((User) obj).getFirstname() &&
                 user.getAge() == this.getAge() && user.getEmail() == this.getEmail()) &&
-                user.getLastname() == this.getLastname() && user.getPassword() == this.getPassword();
+                user.getLastname() == this.getLastname()
+                && user.getPassword() == this.getPassword();
     }
 
     @Override
     public String toString() {
         return "User " + id + ", name: " + getFirstname() + " " + getLastname() +
-                ", age: " + getAge() + ", Email: " + getEmail()+", password: " + getPassword();
+                ", age: " + getAge() + ", Email: " + getEmail()+", password: " + getPassword() ;
     }
 }

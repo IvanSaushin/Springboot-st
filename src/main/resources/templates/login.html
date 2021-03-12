@@ -2,22 +2,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login page</title>
+    <!--    <link rel="icon" type="image/png" href="/icons-spring-logo.ico">-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
 </head>
 <body>
 
-    <div align="center">
-        <br/>
-        <p> Login page </p>
-        <form method="post" action="/login">
-            <br/>
-            <tr/>
-            <input name="j_username"> <br/>
-            <input type="password" name="j_password"> <br/>
-            <input type="submit">
-        </form>
-    </div>
+    <form method="post" class="form-signin" action="/login">
+        <h2 class="form-signin">Please sign in</h2>
+        <p>
+            <label for="email" class="sr-only">Email</label>
+            <input type="email" name="j_username" id="email" class="form-control" placeholder="Email address"
+                   required autofocus>
+        </p>
+        <p>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" name="j_password" id="password" class="form-control" placeholder="Password">
+        </p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
 
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>
 </html>

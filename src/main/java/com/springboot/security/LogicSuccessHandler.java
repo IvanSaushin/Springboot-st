@@ -17,9 +17,10 @@ public class LogicSuccessHandler implements AuthenticationSuccessHandler {
                                         Authentication authentication) throws IOException, ServletException {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         if (roles.contains("ADMIN")) {
-            httpServletResponse.sendRedirect("/admin/users");
+//            httpServletResponse.sendRedirect("/admin/users");
+            httpServletResponse.sendRedirect("/strap/adminpage");
         } else {
-            httpServletResponse.sendRedirect("/people/");
+            httpServletResponse.sendRedirect("/strap/userpage");
         }
     }
 }
