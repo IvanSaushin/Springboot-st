@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/strap")
+@RequestMapping("/bootstrap")
 public class BootstrapController {
 
     @Autowired
@@ -26,19 +26,14 @@ public class BootstrapController {
         model.addAttribute("users", users);
         model.addAttribute("person", new User());
 //        model.addAttribute("currentUser", userDetails);
-        return "/strap/adminpage";
-    }
-
-    @GetMapping("/loginpage")
-    public String login() {
-        return "/strap/loginpage";
+        return "/bootstrap/adminpage";
     }
 
     @GetMapping("/userpage")
     public String getUser(Model model) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user", userDetails);
-        return "/strap/userpage";
+        return "/bootstrap/userpage";
     }
 
 }
