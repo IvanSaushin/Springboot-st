@@ -32,10 +32,15 @@ public class AdminController {
         return "admin/user-list";
     }
 
+//    @GetMapping("/{id}")
+//    public String showUser(@PathVariable("id") Long id, Model model ){
+//        model.addAttribute("person", userService.getUserById(id));
+//        return "/bootstrap/user";
+//    }
     @GetMapping("/{id}")
-    public String showUser(@PathVariable("id") Long id, Model model ){
-        model.addAttribute("person", userService.getUserById(id));
-        return "/bootstrap/user";
+    @ResponseBody
+    public User showUser(@PathVariable("id") Long id){
+        return userService.getUserById(id);
     }
 
     @GetMapping("/user-create")
@@ -58,6 +63,14 @@ public class AdminController {
         userService.saveUser(user);
         return "redirect:/bootstrap/adminpage";
     }
+    @PostMapping("/save")
+    public String save(User user) {
+        userService.setDefaultRole(user);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userService.saveUser(user);
+        return "redirect:/bootstrap/adminpage";
+    }
+
 
 
     @PostMapping("update/{id}")
@@ -81,10 +94,10 @@ public class AdminController {
         return "redirect:/bootstrap/adminpage";
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String delete(@PathVariable("id") Long id) {
-        userService.deleteById(id);
-        return "redirect:/admin/users";
-    }
+//    @DeleteMapping("/delete/{id}")
+//    public String delete(@PathVariable("id") Long id) {
+//        userService.deleteById(id);
+//        return "redirect:/admin/users";
+//    }
 
 }

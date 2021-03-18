@@ -2,9 +2,13 @@ package com.springboot.service;
 
 import com.springboot.model.Role;
 import com.springboot.model.User;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
+@Transactional
 public interface UserService {
 
     void saveUser(User user);
